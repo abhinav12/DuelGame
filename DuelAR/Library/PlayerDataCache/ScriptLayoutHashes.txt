@@ -1,6 +1,6 @@
 Metro
 PlayerPath?
-D:/Hackathon/DuelGame/DuelAR/App
+C:/Users/abmitt/Documents/DuelGame/DuelAR/App
 SceneListBegin?
 Assets/Battleground.unity
 SceneListEnd?
