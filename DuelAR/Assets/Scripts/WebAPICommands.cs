@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-
 #endif
 public class WebAPICommands : MonoBehaviour {
 
@@ -17,7 +16,13 @@ public class WebAPICommands : MonoBehaviour {
 	void Start () {
         Instance = this;
     }
-    public void PostDataAsync(Uri uri, string jsonRequestBody)
+
+    public void PostDataAsync(Uri uri, string jsonRequestBody, string id)
+    {
+        PostDataAsync(uri, jsonRequestBody, id, handler, gameObject);
+    }
+
+    private void PostDataAsync(Uri uri, string jsonRequestBody, string id, OnDataCompleted handler, GameObject gameObject)
     {
         string url = uri.AbsoluteUri;
         var jsonBytes = System.Text.Encoding.UTF8.GetBytes(jsonRequestBody);
@@ -33,6 +38,12 @@ public class WebAPICommands : MonoBehaviour {
         stream.Write(jsonBytes, 0, jsonBytes.Length);
         //TODO : get response and update GameState
         WebResponse response = await webRequest.GetResponseAsync();
+        Stream result = response.GetResponseStream();
+        StreamReader reader = new StreamReader(result);
+
+        string json = reader.ReadToEnd();
+
+        handler(id, DateTime.Now, json, gameObject);
     }
     );
  
@@ -46,9 +57,9 @@ private void PostDataAsyncCompleted(IAsyncAction asyncInfo, AsyncStatus asyncSta
 }
 #endif
 
-    public delegate void OnGetDataCompleted(string id, DateTime timestamp, string json, GameObject gameObject);
+    public delegate void OnDataCompleted(string id, DateTime timestamp, string json, GameObject gameObject);
 
-    private OnGetDataCompleted handler = (id, timestamp, json, gameObject) =>
+    private OnDataCompleted handler = (id, timestamp, json, gameObject) =>
     {
         GameStateModel gameState = JsonUtility.FromJson<GameStateModel>(json);
         if(CurrentGameState.SetInstance(gameState, timestamp))
@@ -62,7 +73,7 @@ private void PostDataAsyncCompleted(IAsyncAction asyncInfo, AsyncStatus asyncSta
         GetDataAsync(url, id, handler, gameObject);
     }
 
-    private void GetDataAsync(string url, string id, OnGetDataCompleted handler, GameObject gameObject)
+    private void GetDataAsync(string url, string id, OnDataCompleted handler, GameObject gameObject)
     {
 #if UNITY_WSA && !UNITY_EDITOR
         IAsyncAction asyncAction = Windows.System.Threading.ThreadPool.RunAsync(
