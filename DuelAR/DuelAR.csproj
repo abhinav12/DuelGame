@@ -235,6 +235,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Holograms\Support\AniCrane\AnimationSpeed.cs" />
+    <Compile Include="Assets\Holograms\Support\Fitbox\Fitbox.cs" />
+    <Compile Include="Assets\Holograms\Support\Fitbox\Interpolator.cs" />
+    <Compile Include="Assets\Holograms\Support\Spatial Mapping\SpatialMapping.cs" />
+    <Compile Include="Assets\Holograms\Support\Underworld\UnderworldReset.cs" />
+    <Compile Include="Assets\Holograms\Support\Underworld\UnderworldSound.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\SceneContentAdjuster.cs" />
     <Compile Include="Assets\HoloToolkit\Common\Scripts\CalibrationSpace.cs" />
@@ -741,6 +747,8 @@
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UICollection.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityScaler.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
+    <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
+    <Compile Include="Assets\Scripts\OpponentCommands.cs" />
     <Compile Include="Assets\Scripts\WorldCursor.cs" />
   </ItemGroup>
   <ItemGroup>
