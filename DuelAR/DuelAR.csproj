@@ -755,7 +755,6 @@
     <Compile Include="Assets\Scripts\Model\JoinRequest.cs" />
     <Compile Include="Assets\Scripts\Model\PlayerStateModel.cs" />
     <Compile Include="Assets\Scripts\Model\WaitRequest.cs" />
-    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\OpponentCommands.cs" />
     <Compile Include="Assets\Scripts\PlayerCommands.cs" />
     <Compile Include="Assets\Scripts\WebAPICommands.cs" />
