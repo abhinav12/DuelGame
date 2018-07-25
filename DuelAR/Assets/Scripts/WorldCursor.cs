@@ -9,6 +9,7 @@ public class WorldCursor : MonoBehaviour
 	{
 		// Grab the mesh renderer that's on the same object as this script.
 		meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+        //send JoinGame Request
 	}
 
 	// Update is called once per frame

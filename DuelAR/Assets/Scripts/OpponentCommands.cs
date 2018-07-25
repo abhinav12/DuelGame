@@ -1,20 +1,27 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using GameServer.Models;
+using System;
+using System.Linq;
+using UnityEngine;
 
 public class OpponentCommands : MonoBehaviour
 {
-	public GameObject scoreBoard;
+	private GameObject ScoreBoard;
+    private PlayerStateModel Opponent;
 
-	private void Awake()
-	{
-		scoreBoard.GetComponentsInChildren<TextMesh>()[0].text = "100";
-	}
 	// Called by GazeGestureManager when the user performs a Select gesture
 	void OnSelect()
 	{
-		string oldScoreStr = scoreBoard.GetComponentsInChildren<TextMesh>()[0].text;
-		int oldScore = int.Parse(oldScoreStr);
-		int newScore = oldScore - 10;
-		string newScoreStr = newScore.ToString();
-		scoreBoard.GetComponentsInChildren<TextMesh>()[0].text = newScoreStr;
+        //Calculate Damage
+		//Make Web call
+        //Where Do i update result?
 	}
+
+    void OnGameStateUpdate()
+    {
+        //Will change for multi player games.
+        Opponent = CurrentGameState.GetInstance().Players.Where(player => player.Key != CurrentPlayerState.Instance.PlayerId).First().Value;
+        if(ScoreBoard != null)
+            ScoreBoard.GetComponentsInChildren<TextMesh>()[0].text = Opponent.Health.ToString();
+    }
 }

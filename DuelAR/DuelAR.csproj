@@ -747,13 +747,16 @@
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UICollection.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityScaler.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
+    <Compile Include="Assets\Scripts\CurrentGameState.cs" />
+    <Compile Include="Assets\Scripts\CurrentPlayerState.cs" />
     <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
     <Compile Include="Assets\Scripts\Model\AttackRequest.cs" />
-    <Compile Include="Assets\Scripts\Model\GameState.cs" />
+    <Compile Include="Assets\Scripts\Model\GameStateModel.cs" />
     <Compile Include="Assets\Scripts\Model\JoinRequest.cs" />
-    <Compile Include="Assets\Scripts\Model\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\Model\PlayerStateModel.cs" />
     <Compile Include="Assets\Scripts\Model\WaitRequest.cs" />
     <Compile Include="Assets\Scripts\OpponentCommands.cs" />
+    <Compile Include="Assets\Scripts\WebAPICommands.cs" />
     <Compile Include="Assets\Scripts\WorldCursor.cs" />
   </ItemGroup>
   <ItemGroup>
